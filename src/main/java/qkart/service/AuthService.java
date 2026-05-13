@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import qkart.dto.RegisterRequest;
 import qkart.entity.User;
 import qkart.enums.Role;
+import qkart.exception.EmailAlreadyExistsException;
 import qkart.repository.UserRepository;
 
 import java.time.LocalDateTime;
@@ -18,7 +19,7 @@ public class AuthService {
 
     public String register(RegisterRequest request) {
         if(userRepository.existsByEmail(request.getEmail())){
-            throw new RuntimeException("Email already exists");
+            throw new EmailAlreadyExistsException("Email already exists");
         }
 
         User user = User.builder()
