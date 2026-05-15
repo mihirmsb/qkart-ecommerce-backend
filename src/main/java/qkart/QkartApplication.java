@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class QkartApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(QkartApplication.class, args);
 	}
 
